@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navidad Andalucía 2025</title>
+    <link rel="icon" type="image/png" href="ico.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Montserrat:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="snowflakes" aria-hidden="true">
+        <div class="snowflake">❅</div><div class="snowflake">❆</div>
+        <div class="snowflake">❅</div><div class="snowflake">❆</div>
+        <div class="snowflake">❅</div><div class="snowflake">❆</div>
+        <div class="snowflake">❅</div><div class="snowflake">❆</div>
+        <div class="snowflake">❅</div><div class="snowflake">❆</div>
+    </div>
+
+    <div id="music-control">
+        <audio id="christmas-music" src="musica.mp3" loop></audio>
+        <button id="play-pause-btn" class="music-btn" aria-label="Reproducir música">
+            <svg id="icon-play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z"/>
+            </svg>
+            <svg id="icon-pause" class="hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+            </svg>
+        </button>
+    </div>
+
+    <header class="hero-section pattern-bg">
+        <div class="header-panel">
+            <div class="logos-container">
+                <img src="logo.png" alt="Hospital Andalucía Logo" class="header-logo-unified">
+                <img src="uma a.png" alt="Hospital UMA Logo" class="header-logo-unified">
+            </div>
+            
+            <p class="subtitle-white">TE DESEAN</p>
+            <h1 class="main-title-white">FELICES FIESTAS</h1>
+            <p class="invitation-text-white">Y te hacen una cordial invitación a la</p>
+            <h2 class="event-title-white">POSADA 2025</h2>
+            
+            <div class="message-container">
+                <p class="message-white">Que la luz y la armonía de la Navidad estén presentes en cada momento de esta celebración.</p>
+                <p class="message-highlight">¡Es momento de celebrar!</p>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="section-gold-bg">
+            <h3 class="section-title-red">¡TE ESPERAMOS!</h3>
+            <div class="underline-red"></div>
+            
+            <p class="date-text">Jueves 11 de Diciembre 2025 | 8:00 pm</p>
+
+            <div id="countdown" class="countdown-container">
+                <div class="square-timer">
+                    <span id="days">00</span>
+                    <small>Día(s)</small>
+                </div>
+                <div class="square-timer">
+                    <span id="hours">00</span>
+                    <small>Hrs</small>
+                </div>
+                <div class="square-timer">
+                    <span id="minutes">00</span>
+                    <small>Min</small>
+                </div>
+                <div class="square-timer">
+                    <span id="seconds">00</span>
+                    <small>Seg</small>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-red-bg pattern-bg">
+            <h3 class="section-title-white">LUGAR</h3>
+            <p class="venue-text">"La Hacienda", México 40, 27457 Hormiguero, Coah.</p>
+            
+            <div class="map-frame">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3595.645011617009!2d-103.3434738!3d25.6830598!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x868fce3d9a6c534b%3A0x2f30748c9958238b!2sLa%20Hacienda!5e0!3m2!1ses-419!2smx!4v1764607082203!5m2!1ses-419!2smx" 
+                        width="100%" height="400" style="border:0;" 
+                        allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <br>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=La+Hacienda,+M%C3%A9xico+40,+27457+Hormiguero,+Coahuila" target="_blank" class="btn-gold">Ubicación</a>
+        </section>
+
+        <section class="section-white-bg">
+            <h3 class="section-title-red">CONFIRMA TU ASISTENCIA</h3>
+            <div class="form-wrapper">
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdafWIKofzHfFpJLsew9YK1ki2hdISvGD8nAC-gDKmb9QnpCw/viewform?embedded=true" 
+                        width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
+            </div>
+        </section>
+    </main>
+
+    <footer class="pattern-bg">
+        <div class="footer-content">
+            <p>Si compartes fotografías en tus redes sociales, usa el siguiente hashtag</p>
+            <p class="hashtag">#HospitalAndalucía</p>
+            <p class="copyright">© 2025 Hospital Andalucía. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
