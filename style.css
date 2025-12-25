@@ -1,289 +1,151 @@
 :root {
-    --red-primary: #a41c19;  
-    --gold-primary: #c1a067; 
-    --gold-dark: #b08d55;
-    --white: #ffffff;
-    --off-white: #ffeede; 
-    --font-title: 'DM Serif Display', serif;
-    --font-body: 'Montserrat', sans-serif;
+    --beige: #fdfaf6;
+    --cafe: #5d4037;
+    --dorado: #c5a059;
+    --blanco: #ffffff;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
 body {
-    font-family: var(--font-body);
-    background-color: var(--white);
-    color: #333;
+    margin: 0;
+    padding: 0;
+    background-color: var(--beige);
+    font-family: 'Montserrat', sans-serif;
+    color: var(--cafe);
     overflow-x: hidden;
 }
 
-/* --- SISTEMA DE FONDO ROJO CON PATRÓN (45% Opacidad) --- */
-.pattern-bg {
-    background-color: var(--red-primary);
+/* Header */
+.hero {
     position: relative;
-    z-index: 1; 
-}
-
-.pattern-bg::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background-image: url('patron.png');
-    background-repeat: repeat;
-    background-size: 300px;
-    opacity: 0.45; 
-    pointer-events: none; 
-    z-index: -1;
-}
-
-/* --- HEADER / HERO SECTION --- */
-.hero-section {
-    min-height: 100dvh; 
+    height: 100vh;
     display: flex;
-    justify-content: center;
-    align-items: stretch; 
-    padding: 0; 
-}
-
-/* El Panel Central */
-.header-panel {
-    background-color: var(--red-primary); 
-    width: 100%;
-    max-width: 900px;
-    padding: 40px;
-    text-align: center;
-    position: relative;
-    z-index: 10;
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-
-    border: 3px solid var(--gold-primary);
-    box-shadow: 0 0 50px rgba(0,0,0,0.5);
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
 }
 
-/* --- ESTILOS PARA LOGOS DOBLES (CORREGIDO) --- */
-.logos-container {
-    display: flex;
-    justify-content: center; /* Centrados horizontalmente */
-    align-items: center;     /* Centrados verticalmente entre sí */
-    gap: 30px;               /* Espacio entre los dos logos */
-    margin-bottom: 25px;     /* Espacio debajo de los logos */
-    width: 100%;             /* Asegura que ocupe el ancho disponible */
+#bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    object-fit: cover;
 }
 
-.header-logo-unified {
-    height: 90px;        /* Altura fija para ambos = Mismo tamaño visual */
-    width: auto;         /* El ancho se ajusta solo para no deformar la imagen */
-    object-fit: contain; /* Asegura nitidez */
-    max-width: 100%;     /* Evita que se salgan en pantallas muy pequeñas */
-}
-
-/* Textos del Header */
-.subtitle-white {
-    color: var(--white);
-    font-size: 1rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-}
-
-.main-title-white {
-    font-family: var(--font-title);
-    font-size: 4rem;
-    color: var(--white);
-    line-height: 1;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-}
-
-.invitation-text-white {
-    color: var(--white);
-    font-size: 1.1rem;
-    font-weight: 300;
-    margin-bottom: 15px;
-}
-
-.event-title-white {
-    font-family: var(--font-title);
-    font-size: 2.5rem;
-    color: var(--white);
-    text-transform: uppercase;
-    margin-bottom: 30px;
-}
-
-.message-container {
-    margin-top: 30px;
-    border-top: 1px solid rgba(255,255,255,0.3);
-    padding-top: 30px;
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    max-width: 600px;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Oscurece un poco el video para leer el texto */
+    z-index: 0;
 }
 
-.message-white {
-    color: var(--white);
-    font-size: 1rem;
-    font-weight: 300;
+.hero-content {
+    position: relative;
+    z-index: 1;
+    color: var(--blanco);
+    font-size: 2.5rem;
+}
+
+.great-vibes-regular {
+    font-family: "Great Vibes", cursive;
+    font-weight: 400;
+}
+
+/* Frase */
+.quote-section {
+    padding: 80px 20px;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.quote-text {
+    font-size: 1.4rem;
+    font-style: italic;
+    color: var(--cafe);
     line-height: 1.6;
-    margin-bottom: 15px;
 }
 
-.message-highlight {
-    color: var(--white);
-    font-size: 1.2rem;
-    font-family: var(--font-title);
-    margin-top: 5px;
+/* Galería */
+.gallery-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 15px;
+    grid-auto-flow: dense;
+}
 
-/* --- SECCIONES INTERNAS --- */
+.gallery-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
 
-/* Sección "Te Esperamos" (Crema) */
-.section-gold-bg {
-    background-color: var(--off-white);
-    padding: 60px 20px;
+.gallery-grid img:hover {
+    transform: scale(1.02);
+}
+
+/* Botón de Música Floating */
+#music-control {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+}
+
+#music-btn {
+    background: var(--blanco);
+    border: 1px solid var(--dorado);
+    padding: 10px 15px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: 'Montserrat';
+    color: var(--cafe);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Botón Descarga */
+.download-section {
     text-align: center;
-    color: var(--red-primary);
-    position: relative;
-    z-index: 20;
-}
-
-.section-title-red {
-    font-family: var(--font-title);
-    font-size: 2.8rem;
-    color: var(--red-primary);
-    margin-bottom: 5px;
-    text-transform: uppercase;
-}
-
-.underline-red {
-    width: 80px; height: 4px; background-color: var(--red-primary);
-    margin: 0 auto 30px auto; border-radius: 2px;
-}
-.date-text {
-    font-size: 1.4rem; font-weight: 600; margin-bottom: 40px; color: var(--red-primary);
-}
-
-/* Contador */
-.countdown-container {
-    display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; margin-bottom: 20px;
-}
-.square-timer {
-    background-color: var(--red-primary);
-    color: var(--off-white);
-    width: 95px; height: 95px; border-radius: 20px;
-    display: flex; flex-direction: column; justify-content: center; align-items: center;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.1); 
-    border: 2px solid rgba(255,255,255,0.1);
-}
-.square-timer span { font-family: var(--font-title); font-size: 2.2rem; line-height: 1; }
-.square-timer small { font-size: 0.75rem; text-transform: uppercase; margin-top: 4px; letter-spacing: 1px; }
-
-/* Sección Roja (Lugar) */
-.section-red-bg {
     padding: 60px 20px;
-    text-align: center;
-    color: white;
 }
 
-.section-title-white {
-    font-family: var(--font-title);
-    font-size: 3rem;
-    color: white;
-    margin-bottom: 20px;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-}
-.venue-text {
-    font-size: 1.3rem; margin-bottom: 30px; font-weight: 500;
-    max-width: 80%; margin-left: auto; margin-right: auto;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-}
-.map-frame {
-    border: 4px solid var(--gold-primary);
-    border-radius: 15px; overflow: hidden; max-width: 800px;
-    margin: 0 auto 35px auto; box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-    background: white;
-}
 .btn-gold {
-    display: inline-block; background-color: var(--gold-primary); color: var(--red-primary);
-    padding: 14px 35px; text-decoration: none; font-weight: 700; text-transform: uppercase;
-    letter-spacing: 1px; border-radius: 30px; transition: all 0.3s;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
-.btn-gold:hover { background-color: var(--off-white); color: var(--red-primary); transform: translateY(-3px); }
-
-/* Sección RSVP (Crema) */
-.section-white-bg {
-    background-color: var(--off-white);
-    padding: 60px 20px; text-align: center;
-}
-.form-wrapper {
-    max-width: 800px; margin: 30px auto 0; border-radius: 15px;
-    overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    display: inline-block;
+    padding: 15px 40px;
+    border: 2px solid var(--dorado);
+    color: var(--dorado);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    font-weight: bold;
 }
 
-/* Footer */
-footer {
-    padding: 40px 20px;
-    text-align: center;
-    color: rgba(255,255,255,0.8);
-}
-.footer-content {
-    position: relative;
-    z-index: 2; 
-}
-.hashtag { font-size: 1.3rem; font-weight: 700; margin: 15px 0; color: var(--gold-primary); letter-spacing: 1px; }
-
-/* Botón Música */
-#music-control { position: fixed; top: 20px; right: 20px; z-index: 2000; }
-.music-btn {
-    background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
-    border: none; border-radius: 50%; width: 60px; height: 60px;
-    cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    display: flex; justify-content: center; align-items: center;
-    transition: transform 0.2s, box-shadow 0.2s; color: white;
-}
-.music-btn:hover { transform: scale(1.1); box-shadow: 0 6px 20px rgba(0,0,0,0.4); }
-.music-btn svg { width: 28px; height: 28px; fill: white; }
-.hidden { display: none; }
-.music-playing { animation: pulse-gold 2s infinite; }
-@keyframes pulse-gold {
-    0% { box-shadow: 0 0 0 0 rgba(193, 160, 103, 0.7); }
-    70% { box-shadow: 0 0 0 15px rgba(193, 160, 103, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(193, 160, 103, 0); }
+.btn-gold:hover {
+    background-color: var(--dorado);
+    color: var(--blanco);
 }
 
-/* Responsive - Ajustes para móviles */
-@media (max-width: 600px) {
-    .main-title-white { font-size: 2.8rem; } 
-    .event-title-white { font-size: 1.8rem; }
-    .header-panel { padding: 30px 15px; border-width: 2px; } 
-    
-    /* Ajuste de logos en móvil */
-    .logos-container { gap: 15px; }
-    .header-logo-unified { height: 60px; }
-    
-    .square-timer { width: 70px; height: 70px; border-radius: 15px; }
-    .square-timer span { font-size: 1.5rem; }
-    .venue-text { font-size: 1.1rem; max-width: 100%; }
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-content { font-size: 1.8rem; }
+    .quote-text { font-size: 1.1rem; }
 }
-
-/* Copos de nieve */
-.snowflakes { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1000; }
-.snowflake { color: rgba(255,255,255,0.6); font-size: 1.2em; position: absolute; top: -10%; animation: fall 10s linear infinite; }
-@keyframes fall {
-    0% { top: -10%; opacity: 0; transform: translateX(0); }
-    20% { opacity: 1; }
-    100% { top: 100%; opacity: 0; transform: translateX(100px); }
-}
-.snowflake:nth-child(1) { left: 10%; animation-delay: 0s; }
-.snowflake:nth-child(2) { left: 20%; animation-delay: 2s; animation-duration: 12s; }
-.snowflake:nth-child(3) { left: 30%; animation-delay: 4s; }
-.snowflake:nth-child(4) { left: 40%; animation-delay: 1s; animation-duration: 15s;}
-.snowflake:nth-child(5) { left: 50%; animation-delay: 6s; }
-.snowflake:nth-child(6) { left: 60%; animation-delay: 3s; animation-duration: 13s;}
-.snowflake:nth-child(7) { left: 70%; animation-delay: 5s; }
-.snowflake:nth-child(8) { left: 80%; animation-delay: 2s; animation-duration: 11s;}
-.snowflake:nth-child(9) { left: 90%; animation-delay: 0s; }
