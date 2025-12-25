@@ -1,56 +1,25 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // --- 1. CONFIGURACIÓN DEL CONTADOR ---
-    const targetDate = new Date('December 11, 2025 20:00:00').getTime();
+// Generar Galería - Limitado a 20 imágenes
+const gallery = document.getElementById('gallery');
+const totalPhotos = 20; // Cambiado de 49 a 20
 
-    const countdown = setInterval(() => {
-        const now = new Date().getTime();
-        const distance = targetDate - now;
+for (let i = 1; i <= totalPhotos; i++) {
+    const img = document.createElement('img');
+    img.src = `assets/img (${i}).jpg`;
+    img.alt = `Momento ${i}`;
+    img.loading = "lazy"; // Esto ayuda a que la web cargue más rápido
+    gallery.appendChild(img);
+}
 
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+// Control de Música (Se mantiene igual)
+const music = document.getElementById('bg-music');
+const musicBtn = document.getElementById('music-btn');
 
-        // Formato con ceros a la izquierda
-        document.getElementById('days').textContent = days < 10 ? '0' + days : days;
-        document.getElementById('hours').textContent = hours < 10 ? '0' + hours : hours;
-        document.getElementById('minutes').textContent = minutes < 10 ? '0' + minutes : minutes;
-        document.getElementById('seconds').textContent = seconds < 10 ? '0' + seconds : seconds;
-
-        if (distance < 0) {
-            clearInterval(countdown);
-            document.getElementById('countdown').innerHTML = "<h2 style='color: var(--red-primary);'>¡Es Hoy!</h2>";
-        }
-    }, 1000);
-
-    // --- 2. REPRODUCTOR DE MÚSICA ---
-    const music = document.getElementById('christmas-music');
-    const btn = document.getElementById('play-pause-btn');
-    const iconPlay = document.getElementById('icon-play');
-    const iconPause = document.getElementById('icon-pause');
-
-    function updateIcon(isPlaying) {
-        if (isPlaying) {
-            iconPlay.classList.add('hidden');
-            iconPause.classList.remove('hidden');
-            btn.classList.add('music-playing');
-        } else {
-            iconPlay.classList.remove('hidden');
-            iconPause.classList.add('hidden');
-            btn.classList.remove('music-playing');
-        }
+function toggleMusic() {
+    if (music.paused) {
+        music.play();
+        musicBtn.innerText = "⏸ Pausar Música";
+    } else {
+        music.pause();
+        musicBtn.innerText = "🎵 Reproducir Música";
     }
-
-    btn.addEventListener('click', () => {
-        if (music.paused) {
-            music.play().then(() => {
-                updateIcon(true);
-            }).catch(error => {
-                console.log("Error al reproducir: ", error);
-            });
-        } else {
-            music.pause();
-            updateIcon(false);
-        }
-    });
-});
+}
